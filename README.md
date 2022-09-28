@@ -1,108 +1,116 @@
 # Ex-04-Multivariate-Analysis
-# AIM
+
+## AIM
 To perform Multivariate EDA on the given data set.
 
-## Explanation
+## Explanation:
 Exploratory data analysis is used to understand the messages within a dataset. This technique involves many iterative processes to ensure that the cleaned data is further sorted to better understand the useful meaning.The primary aim with exploratory analysis is to examine the data for distribution, outliers and anomalies to direct specific testing of your hypothesis.
 
-## ALGORITHM
-# STEP 1
+## ALGORITHM:
+
+### STEP 1
 Import the built libraries required to perform EDA and outlier removal.
 
-# STEP 2
+### STEP 2
 Read the given csv file
 
-# STEP 3
+### STEP 3
 Convert the file into a dataframe and get information of the data.
 
-# STEP 4
+### STEP 4
 Return the objects containing counts of unique values using (value_counts()).
 
-# STEP 5
+### STEP 5
 Plot the counts in the form of Histogram or Bar Graph.
 
-# STEP 6
+### STEP 6
 Use seaborn the bar graph comparison of data can be viewed.
 
-# STEP 7
+### STEP 7
 Find the pairwise correlation of all columns in the dataframe.corr()
 
-# STEP 8
+### STEP 8
 Save the final data set into the file
 
-## CODE
-~~~
+## PROGRAM
+```
 Name : Easwar.J
 Register Number : 212221230024
 
 import pandas as pd
 import numpy as np
-import seaborn as sbn
+import seaborn as sns
 import matplotlib.pyplot as plt
-df = pd.read_csv("/content/SuperStore.csv")
-df.head(10)
+df=pd.read_csv("SuperStore.csv")
+df
 df.info()
 df.describe()
 df.isnull().sum()
 df['Postal Code'] = df["Postal Code"].fillna(df['Postal Code'].mode()[0])
 df.isnull().sum()
 df.dtypes
-sbn.scatterplot(df['Postal Code'],df['Sales'])
+sns.scatterplot(df['Row ID'],df['Sales'])
 states=df.loc[:,["State","Sales"]]
 states=states.groupby(by=["State"]).sum().sort_values(by="Sales")
 plt.figure(figsize=(17,7))
-sbn.barplot(x=states.index,y="Sales",data=states)
+sns.barplot(x=states.index,y="Sales",data=states)
 plt.xticks(rotation = 90)
 plt.xlabel=("STATES")
 plt.ylabel=("SALES")
 plt.show()
-states=df.loc[:,["State","Postal Code"]]
-states=states.groupby(by=["State"]).sum().sort_values(by="Postal Code")
+states=df.loc[:,["State","Row ID"]]
+states=states.groupby(by=["State"]).sum().sort_values(by="Row ID")
 plt.figure(figsize=(17,7))
-sbn.barplot(x=states.index,y="Postal Code",data=states)
+sns.barplot(x=states.index,y="Row ID",data=states)
 plt.xticks(rotation = 90)
 plt.xlabel=("STATES")
-plt.ylabel=("Postal Code")
+plt.ylabel=("ROW ID")
 plt.show()
-states=df.loc[:,["Segment","Sales"]]
-states=states.groupby(by=["Segment"]).sum().sort_values(by="Sales")
-#plt.figure(figsize=(10,7))
-sbn.barplot(x=states.index,y="Sales",data=states)
+states=df.loc[:,["Segment","Row ID"]]
+states=states.groupby(by=["Segment"]).sum().sort_values(by="Row ID")
+sns.barplot(x=states.index,y="Row ID",data=states)
 plt.xticks(rotation = 90)
 plt.xlabel=("SEGMENT")
-plt.ylabel=("SALES")
+plt.ylabel=("ROW ID")
 plt.show()
-sbn.barplot(df['Postal Code'],df['Ship Mode'],hue=df['Region'])
+sns.barplot(df['Sales'],df['Ship Mode'],hue=df['Region'])
 df.corr()
-sbn.heatmap(df.corr(),annot=True)
-~~~
+sns.heatmap(df.corr(),annot=True)
+```
 ## OUTPUT
 
-# EDA - SuperStore.csv
-<img width="558" alt="k1" src="https://user-images.githubusercontent.com/94154683/192805324-ab0e2588-65db-4dc8-809b-0c127ffa3b54.png">
+### DATA
+![ds1](https://user-images.githubusercontent.com/93427345/192081855-93a0a135-2e83-426c-bf0b-9a5cee4417ea.PNG)
 
+### DATA INFORMATION
+![ds2](https://user-images.githubusercontent.com/93427345/192081863-502f4e6f-dbc0-43ac-a56a-b67cdfdeaacf.PNG)
 
-# Displaying information about Dataset
-<img width="202" alt="k2" src="https://user-images.githubusercontent.com/94154683/192805368-64bd8ff0-e20c-48c2-8fe3-36748bd1c6b4.png">
+### DATA DESCRIBE
+![ds3](https://user-images.githubusercontent.com/93427345/192081866-1eaf8f71-77c1-4d44-9fbd-badc5eb54976.PNG)
 
-# Checking the null values and Cleaning it
-<img width="313" alt="k3" src="https://user-images.githubusercontent.com/94154683/192805681-d937df08-29f9-4463-a499-7ef686930466.png">
+### Checking the null values and Cleaning it
+![ds4](https://user-images.githubusercontent.com/93427345/192081868-bb1c6a2b-c388-4297-8f9d-062a9a6382fa.PNG)
 
+![ds5](https://user-images.githubusercontent.com/93427345/192081870-5a17f340-ca8e-4f27-9d52-00c8c5b6f0b0.PNG)
 
-# Displaying datatypes of each features
-<img width="116" alt="k4" src="https://user-images.githubusercontent.com/94154683/192805699-d3d7b642-7012-45a6-b4b5-a7d4695c8da5.png">
+### DATA TYPES
+![ds6](https://user-images.githubusercontent.com/93427345/192081875-cd5f61b7-a6e7-4b7d-a747-dc97b19dea7a.PNG)
 
-# Multivariate Analysis - Scatterplot
-<img width="421" alt="k5" src="https://user-images.githubusercontent.com/94154683/192805750-18b3f714-1a63-424d-9806-07d6c3424923.png">
+### SCATTERPLOT
+![ds7](https://user-images.githubusercontent.com/93427345/192081882-1b088cb0-ee09-4334-8fa6-77464adbf84a.PNG)
 
+### BARPLOT
+![ds8](https://user-images.githubusercontent.com/93427345/192081890-828a4d08-bdce-4c45-b4cc-902510b8e335.PNG)
+![ds9](https://user-images.githubusercontent.com/93427345/192081895-94ab27ad-2785-4f74-b928-efb3244f4f07.PNG)
+![ds10](https://user-images.githubusercontent.com/93427345/192081899-53b88f37-48b0-4e53-9f2c-8ad7cc70fc20.PNG)
+![ds11](https://user-images.githubusercontent.com/93427345/192081915-7ed8001c-8c90-46a6-a7d9-d94d5c680e5d.PNG)
 
-# Multivariate Analysis - Barplot
-<img width="378" alt="k6" src="https://user-images.githubusercontent.com/94154683/192805760-cada4c2c-f973-4f8b-a325-1f35aa97b91f.png">
-<img width="434" alt="k7" src="https://user-images.githubusercontent.com/94154683/192805778-9099d680-d0e4-49cf-b547-0ee51b7d9431.png">
-<img width="422" alt="k8" src="https://user-images.githubusercontent.com/94154683/192805803-f7cb70d0-2618-4b78-a7bb-ad26db9e4ebd.png">
+### CORRELATION COEFFICIENT INTERPRETATION
+![ds12](https://user-images.githubusercontent.com/93427345/192081924-97ec7304-77c5-48d0-be48-1c62862c7cef.PNG)
 
-# Correlation Coefficient Interpretation using HeatMap
-<img width="319" alt="k9" src="https://user-images.githubusercontent.com/94154683/192805842-82fefe67-5f32-4bcb-8240-7838dddf27bb.png">
+### HEATMAP
+![ds13](https://user-images.githubusercontent.com/93427345/192081930-9ee4f96a-9dad-47e3-be5a-7560aae588e1.PNG)
 
 ## RESULT
-Thus the program to perform EDA on the given data set is successfully executed.
+Thus we have read the given data and performed the multivariate analysis with different types of
+plots.
