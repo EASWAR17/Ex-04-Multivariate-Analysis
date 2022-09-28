@@ -82,10 +82,10 @@ sns.heatmap(df.corr(),annot=True)
 ### DATA
 ![ds1](https://user-images.githubusercontent.com/93427345/192081855-93a0a135-2e83-426c-bf0b-9a5cee4417ea.PNG)
 
-### DATA INFORMATION
+### Data.info
 ![ds2](https://user-images.githubusercontent.com/93427345/192081863-502f4e6f-dbc0-43ac-a56a-b67cdfdeaacf.PNG)
 
-### DATA DESCRIBE
+### Data.describe
 ![ds3](https://user-images.githubusercontent.com/93427345/192081866-1eaf8f71-77c1-4d44-9fbd-badc5eb54976.PNG)
 
 ### Checking the null values and Cleaning it
@@ -96,10 +96,10 @@ sns.heatmap(df.corr(),annot=True)
 ### DATA TYPES
 ![ds6](https://user-images.githubusercontent.com/93427345/192081875-cd5f61b7-a6e7-4b7d-a747-dc97b19dea7a.PNG)
 
-### SCATTERPLOT
+### SCATTER PLOT
 ![ds7](https://user-images.githubusercontent.com/93427345/192081882-1b088cb0-ee09-4334-8fa6-77464adbf84a.PNG)
 
-### BARPLOT
+### BAR PLOT
 ![ds8](https://user-images.githubusercontent.com/93427345/192081890-828a4d08-bdce-4c45-b4cc-902510b8e335.PNG)
 ![ds9](https://user-images.githubusercontent.com/93427345/192081895-94ab27ad-2785-4f74-b928-efb3244f4f07.PNG)
 ![ds10](https://user-images.githubusercontent.com/93427345/192081899-53b88f37-48b0-4e53-9f2c-8ad7cc70fc20.PNG)
